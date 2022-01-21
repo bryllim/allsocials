@@ -25,4 +25,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function editprofile()
+    {
+        return view('editprofile');
+    }
+
+    public function addlink()
+    {
+        return view('addlink');
+    }
 }
