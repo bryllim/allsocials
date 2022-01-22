@@ -19,7 +19,7 @@
 
     <section class="w-full px-6 antialiased bg-white">
         <div class="mx-auto max-w-7xl">
-            <nav class="relative z-50 h-24 select-none" x-data="{ showMenu: false }">
+            <nav class="relative z-50 h-24 select-none">
                 <div class="container relative flex flex-wrap items-center justify-between h-24 mx-auto overflow-hidden font-medium border-b border-gray-200 md:overflow-visible lg:justify-center sm:px-4 md:px-2">
                     <div class="flex items-center justify-start w-1/4 h-full pr-4">
                         <a href="{{ url('/home') }}" class="inline-block py-4 md:py-0">
