@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Username | allsocials</title>
+    <title>{{ $user->name }} | All Socials</title>
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
@@ -31,19 +31,15 @@
 
             <div class="container max-w-lg px-4 mt-20 pb-32 mx-auto text-left md:max-w-none">
                 <h1 class="text-5xl">👋🏻</h1>
-                <h1 class="text-4xl text-gray-900 font-black mb-5">Bryl Lim</h1>
-                <a href="#" class="mt-3 flex bg-indigo-500 rounded font-bold text-white px-3 py-2 transition duration-300 ease-in-out hover:bg-indigo-600">
+                <h1 class="text-4xl text-gray-900 font-black mb-5">{{ $user->name }}</h1>
+                @foreach($links as $link)
+                <a href="{{ $link->url }}" class="mt-3 flex bg-indigo-500 rounded font-bold text-white px-3 py-2 transition duration-300 ease-in-out hover:bg-indigo-600">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
-                    <span class="ml-3">Instagram</span>
+                    <span class="ml-3">{{ $link->label }}</span>
                 </a>
-                <a href="#" class="mt-3 flex bg-indigo-500 rounded font-bold text-white px-3 py-2 transition duration-300 ease-in-out hover:bg-indigo-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                    <span class="ml-3">Instagram</span>
-                </a>
+                @endforeach
             </div>
 
         </div>

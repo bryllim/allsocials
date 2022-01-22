@@ -37,6 +37,18 @@ class HomeController extends Controller
 
     public function updateprofile(Request $request)
     {
+        // Check if URL is valid
+        if(
+            strtolower($request->url) == "home" ||
+            strtolower($request->url) == "addlink" ||
+            strtolower($request->url) == "editprofile" ||
+            strtolower($request->url) == "updateprofile" ||
+            strtolower($request->url) == "deletelink" ||
+            strtolower($request->url) == "updatelink"
+        ){
+            return redirect()->back()->with('error', 'URL is not valid.');
+        }
+
         // Check if user URL exists
         $user = User::where('url', $request->url)->first();
         if ($user) {
@@ -72,10 +84,5 @@ class HomeController extends Controller
         $link = Link::find($request->id);
         $link->delete();
         return redirect()->route('home')->with('success', "Link deleted.");
-    }
-
-    public function profile()
-    {
-        return view('profile');
     }
 }

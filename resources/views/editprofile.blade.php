@@ -38,7 +38,7 @@
                   />
                 </div>
                 @if(session()->has('error'))
-                <p class="text-red-500 text-sm my-4">This social link has already been taken.</p>
+                <p class="text-red-500 text-sm my-4 italic">{{ Session::get('error') }}</p>
                 @endif
                 <button type="submit" class="mt-3 mb-5 flex bg-indigo-500 rounded font-bold text-white text-center px-3 py-2 transition duration-300 ease-in-out hover:bg-indigo-600">
                     <span>Update Social Link</span>
