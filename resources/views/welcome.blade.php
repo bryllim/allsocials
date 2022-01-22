@@ -10,6 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>All Socials | One link for all your social links!</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}" />
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
