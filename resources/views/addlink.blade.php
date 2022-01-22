@@ -23,7 +23,8 @@
         </section>
 
         <section class="my-5">
-            <form action="#">
+            <form method="post" action="{{ route('updatelink') }}">
+                @csrf
                 <label for="label" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                     Label
                 </label>
@@ -31,7 +32,7 @@
                 <label for="url" class="block text-gray-700 text-sm font-bold mt-4 mb-2 sm:mb-4">
                     URL
                 </label>
-                <input id="url" type="text" class="form-input w-full" name="label" placeholder="Ex. instagram.com/username" required>
+                <input id="url" type="text" class="form-input w-full" name="url" placeholder="Ex. instagram.com/username" required>
                 <button type="submit" class="mt-5 mb-5 flex bg-indigo-500 rounded font-bold text-white text-center px-3 py-2 transition duration-300 ease-in-out hover:bg-indigo-600">
                     <span>Add Link</span>
                 </button>

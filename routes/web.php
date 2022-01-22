@@ -21,5 +21,9 @@ Auth::routes();
 Route::get('/testprofile', [\App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/editprofile', [\App\Http\Controllers\HomeController::class, 'editprofile'])->name('editprofile');
+
 Route::get('/addlink', [\App\Http\Controllers\HomeController::class, 'addlink'])->name('addlink');
+Route::post('/updatelink', [\App\Http\Controllers\HomeController::class, 'updatelink'])->name('updatelink');
+
+Route::get('/editprofile', [\App\Http\Controllers\HomeController::class, 'editprofile'])->name('editprofile');
+Route::post('/updateprofile', [\App\Http\Controllers\HomeController::class, 'updateprofile'])->name('updateprofile');

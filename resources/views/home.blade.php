@@ -27,7 +27,11 @@
 
         <section class="my-10">
             <a href="{{ route('editprofile') }}" class="border-2 border-indigo-500 rounded-lg font-bold text-indigo-500 px-4 py-3 transition duration-300 ease-in-out hover:bg-indigo-500 hover:text-white mr-6">
-                Set up your main social link
+                @if(auth()->user()->url)
+                    allsocials.link/{{ auth()->user()->url }}
+                @else
+                    Set up your main social link
+                @endif
             </a>
         </section>
 
@@ -42,10 +46,11 @@
                     </svg>
                     <span class="ml-3">Add social link</span>
                 </a>
+                @foreach($links as $link)
                 <div class="flex flex-row bg-white shadow-sm rounded p-2 my-3">
                     <div class="flex flex-col flex-grow ml-2">
-                        <div class="font-bold text-md w-60">Instagram</div>
-                        <div class="text-xs text-gray-500 w-60">https://www.instagram.com/bryl.lim</div>
+                        <div class="font-bold text-md w-60">{{ $link->label }}</div>
+                        <div class="text-xs text-gray-500 w-60">{{ $link->url }}</div>
                     </div>
                     <a href="#" class="flex items-center justify-center flex-shrink-0 h-7 w-7 rounded-xl bg-indigo-100 text-indigo-500 hover:bg-indigo-500 hover:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -53,6 +58,7 @@
                         </svg>
                     </a>
                 </div>
+                @endforeach
             </div>
         </section>
 

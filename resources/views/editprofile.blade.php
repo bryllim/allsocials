@@ -23,20 +23,25 @@
         </section>
 
         <section class="my-5">
-            <form action="#">
-                <div class="w-full inline-flex border">
-                  <div class="w-5/12 pt-2 bg-indigo-500 text-white text-right px-2">
+            <form method="post" action="{{ route('updateprofile') }}">
+                @csrf
+                <div class="w-full inline-flex ">
+                  <div class="w-5/12 pt-2 bg-indigo-500 rounded-l text-white text-right px-2">
                    allsocials.link/
                   </div>
                   <input
                     type="text"
+                    name="url"
+                    value="{{ auth()->user()->url }}"
                     required
-                    class="w-7/12 focus:outline-none focus:text-gray-600 p-2"
+                    class="w-7/12 focus:outline-none border rounded-r p-2"
                   />
                 </div>
+                @if(session()->has('error'))
                 <p class="text-red-500 text-sm my-4">This social link has already been taken.</p>
+                @endif
                 <button type="submit" class="mt-3 mb-5 flex bg-indigo-500 rounded font-bold text-white text-center px-3 py-2 transition duration-300 ease-in-out hover:bg-indigo-600">
-                    <span>Update</span>
+                    <span>Update Social Link</span>
                 </button>
             </form>
         </section>
