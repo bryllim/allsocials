@@ -28,9 +28,9 @@
         <section class="my-10">
             <a href="{{ route('editprofile') }}" class="border-2 border-indigo-500 rounded-lg font-bold text-indigo-500 px-4 py-3 transition duration-300 ease-in-out hover:bg-indigo-500 hover:text-white mr-6">
                 @if(auth()->user()->url)
-                    allsocials.link/{{ auth()->user()->url }}
+                allsocials.link/{{ auth()->user()->url }}
                 @else
-                    Set up your main social link
+                Set up your main social link
                 @endif
             </a>
         </section>
@@ -52,11 +52,15 @@
                         <div class="font-bold text-md w-60">{{ $link->label }}</div>
                         <div class="text-xs text-gray-500 w-60">{{ $link->url }}</div>
                     </div>
-                    <a href="#" class="flex items-center justify-center flex-shrink-0 h-7 w-7 rounded-xl bg-indigo-100 text-indigo-500 hover:bg-indigo-500 hover:text-white">
+                    <button onclick="event.preventDefault(); document.getElementById('delete-link{{ $link->id }}').submit();" class="flex items-center justify-center flex-shrink-0 h-7 w-7 rounded-xl bg-indigo-100 text-indigo-500 hover:bg-indigo-500 hover:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
-                    </a>
+                    </button>
+                    <form id="delete-link{{ $link->id }}" action="{{ route('deletelink') }}" method="post" class="hidden">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $link->id }}">
+                    </form>
                 </div>
                 @endforeach
             </div>

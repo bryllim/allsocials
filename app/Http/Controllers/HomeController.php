@@ -66,6 +66,14 @@ class HomeController extends Controller
         return redirect()->route('home')->with('success', "Link added.");
     }   
 
+    public function deletelink(Request $request)
+    {
+        // Delete link
+        $link = Link::find($request->id);
+        $link->delete();
+        return redirect()->route('home')->with('success', "Link deleted.");
+    }
+
     public function profile()
     {
         return view('profile');
