@@ -70,9 +70,14 @@ class HomeController extends Controller
     public function updatelink(Request $request)
     {
         // Create a new link
+        $url = $request->url;
+        $scheme = parse_url($url, PHP_URL_SCHEME);
+        if (empty($scheme)) {
+            $url = 'http://' . ltrim($url, '/');
+        }
         $link = new Link;
         $link->label = $request->label;
-        $link->url = $request->url;
+        $link->url = $url;
         $link->user_id = auth()->user()->id;
         $link->save();
         return redirect()->route('home')->with('success', "Link added.");
